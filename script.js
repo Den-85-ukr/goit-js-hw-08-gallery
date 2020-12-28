@@ -1,4 +1,4 @@
-import gallery from '/gallery-items.js';
+import gallery from './gallery-items.js';
 
 const galleryRef = document.querySelector('.js-gallery');
 const largeImageRef = document.querySelector('.lightbox__image');

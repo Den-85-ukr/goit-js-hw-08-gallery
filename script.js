@@ -41,24 +41,15 @@ function galleryClick(event) {
     window.addEventListener('keyup', modalWithBtn);
     closeButtonRef.addEventListener('click', closeModal);
     overlayRef.addEventListener('click', closeModal);
-
-    openModal();
-}
-
-function openModal() {
     modalContainerRef.classList.add('is-open');
 }
 
-function closeModal(event) {
-    if (
-        event.target.nodeName !== 'IMG'        
-    ) {
+function closeModal() {
         largeImageRef.src = '';
         modalContainerRef.classList.remove('is-open');
         window.removeEventListener('keyup', modalWithBtn);
         closeButtonRef.removeEventListener('click', closeModal);
         overlayRef.removeEventListener('click', closeModal);
-    }
 }
 
 function nextImage() {
@@ -97,9 +88,8 @@ function setNewSrc(index) {
 }
 
 function modalWithBtn({ code }) {
-    if (code === 'Escape') {
-        largeImageRef.src = '';
-        modalContainerRef.classList.remove('is-open');
+    if (code === 'Escape') {       
+        closeModal();        
     } else if (code === 'ArrowRight') {
         nextImage();
     } else if (code === 'ArrowLeft') {
